@@ -1,0 +1,29 @@
+{{ block title }}Results{{ endblock }}
+{{ block content }}
+
+    {{ if player.nature == 2 }}
+        <p>
+            Fuiste el rol B. 
+            De los {{C.ENDOWMENT}} de dotación, el jugador de rol A te envió {{other_send}}.  
+            Recibiste {{your_received}} y tu le devolviste {{your_sb}}. 
+            Por tanto tu beneficio es {{your_received}} - {{your_sb}} = {{player.payoff}}. 
+        </p>
+        <p>
+            (player nature es {{player.nature}} y tu eres el jugador {{player.id_in_group}}) 
+        </p>
+    {{ else }}
+        <p>
+            Fuiste el rol A. 
+            De los {{C.ENDOWMENT}} de dotación le enviaste {{your_send}} al jugador de rol B, quien recibió {{other_received}} y te devolvió {{other_sb}}.
+            Por tanto tu beneficio es {{C.ENDOWMENT}} - {{your_send}} + {{other_sb}} = {{player.payoff}}
+        </p>
+        <p>
+            (player nature es {{player.nature}} y tu eres el jugador {{player.id_in_group}})
+        </p>
+
+    {{ endif }}
+
+
+    {{ include_sibling 'instructions.html' }}
+
+{{ endblock }}

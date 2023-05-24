@@ -1,0 +1,13 @@
+{{ block title }}Trust Game: Your Choice{{ endblock }}
+{{ block content }}
+
+    <p>
+        La dotación a repartir es de {{C.ENDOWMENT}}.
+    </p>
+
+    {{ formfields }}
+    {{ next_button }}
+
+    {{ include_sibling 'instructions.html' }}
+
+{{ endblock }}
